@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 class Cart extends Component
 {
     render() {
-        const loginMember = 2; // 1 = Associate, 2 = Platinum , 3 = Diamond
+        const loginMember = 3; // 1 = Associate, 2 = Platinum , 3 = Diamond
         let memberType = '';
         let discount = 0;
         let total = 0;
