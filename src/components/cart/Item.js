@@ -11,7 +11,8 @@ class Item extends Component {
  
         this.state = {
             quantity: this.props.item.quantity,
-            btnVisible: false
+            btnVisible: false,
+            deteleVisible: true
         };
     }
  
@@ -23,16 +24,11 @@ class Item extends Component {
             return;
         }
  
-        if(e.target.value > this.props.item.product.amount) {
-            alert("You have exceeded the available items of this product!");
- 
-            return;
-        }
- 
         if(this.state.quantity !== e.target.value) {
             this.setState({
                 quantity: e.target.value,
-                btnVisible: true
+                btnVisible: true,
+                deteleVisible: false
             });
         }
     }
@@ -43,7 +39,8 @@ class Item extends Component {
         this.props.updateCartQuantity(this.props.item.product.id, this.state.quantity);
  
         this.setState({
-            btnVisible: false
+            btnVisible: false,
+            deteleVisible: true
         });
     }
  
@@ -80,11 +77,15 @@ class Item extends Component {
                           ) : null
                       }
  
-                      <div className="col-xs-2">
-                          <button type="button" onClick={this.handleRemove} className="btn btn-link btn-xs">
-                              <span className="glyphicon glyphicon-trash"> </span>
-                          </button>
-                      </div>
+                      {
+                          this.state.deteleVisible?(
+                            <div className="col-xs-2">
+                                <button type="button" onClick={this.handleRemove} className="btn btn-link btn-xs">
+                                    <span className="glyphicon glyphicon-trash"> </span>
+                                </button>
+                            </div>
+                          ) : null
+                      }
                   </form>
               </div>
           </div>

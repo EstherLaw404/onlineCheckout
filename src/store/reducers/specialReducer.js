@@ -12,7 +12,6 @@ const initialState = {
 };
  
 const specialReducer = (state = initialState, action) => {
- console.log('specialReducer.js');
     return state;
 };
  

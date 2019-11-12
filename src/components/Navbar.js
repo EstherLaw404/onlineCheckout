@@ -9,16 +9,12 @@ class Navbar extends Component {
  
         this.props.cartUpdated();
  
-        let total = 0;
- 
-        this.props.cart.map(item => total += item.product.price * item.quantity);
- 
         return (
  
             <nav className="navbar navbar-default">
                 <div className="container-fluid">
                     <div className="navbar-header">
-                        <NavLink className="navbar-brand" to="/">Shopping cart</NavLink>
+                        <NavLink className="navbar-brand" to="/">Online Checkout</NavLink>
                     </div>
  
                     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -26,10 +22,10 @@ class Navbar extends Component {
                             <li><NavLink to="/my-cart">
                                 {
                                     this.props.cart.length > 0 ? (
-                                        <span className="label label-info">{ this.props.cart.length } items: (${total.toFixed(2)})</span>
+                                        <span className="label label-info">{ this.props.cart.length } items</span>
                                     ) : null
                                 }
-                                <i className="glyphicon glyphicon-shopping-cart"></i> My Cart</NavLink></li>
+                                <i className="glyphicon glyphicon-shopping-cart"></i> Checkout</NavLink></li>
                         </ul>
                     </div>
                 </div>
