@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 class Cart extends Component
 {
     render() {
-        const loginMember = 3; // 1 = Associate, 2 = Platinum , 3 = Diamond
+        const loginMember = 1; // 1 = Associate, 2 = Platinum , 3 = Diamond
         let memberType = '';
         let discount = 0;
         let total = 0;
@@ -36,12 +36,15 @@ class Cart extends Component
                             // getDeal
                             let remainder = item.quantity%spec.dealVolume;
                             let dividen = Math.floor(item.quantity/spec.dealVolume);
+
                             if(dividen){
                                 console.log('--------special getdeal--------');
                                 total += parseFloat((item.product.price * spec.volume*dividen).toFixed(2));
                                 console.log(parseFloat((item.product.price * spec.volume*dividen).toFixed(2)));
                                 isSpec = true;
-                            }else if(remainder){
+                            } 
+                            if(remainder){
+                                item.quantity = remainder;
                                 isSpec = false;
                             }
                         }else{
